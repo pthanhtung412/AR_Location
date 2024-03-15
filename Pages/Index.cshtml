@@ -23,10 +23,11 @@
     <a-scene vr-mode-ui="enabled: false"
              arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
         <a-assets>
-            <img id="pinLocation" src="~/img/pin_location.png">
-            <img id="tatekanban" src="~/img/tatekanban.png">
+            @*<img id="pinLocation" src="~/Content/images/pin_location.png">
+            <img id="tatekanban" src="~/Content/images/tatekanban.png">
+            <img id="redcross" src="~/Content/images/red_cross.png">*@
         </a-assets>
-        <a-camera id="myCamera" gps-new-camera rotation-reader rotation="">
+        <a-camera  id="myCamera" gps-new-camera='gpsMinDistance: 7' rotation-reader>
         </a-camera>
     </a-scene>
 </body>
