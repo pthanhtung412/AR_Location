@@ -27,6 +27,7 @@ var data_bundau = [
     { latitude: 10.83939600596755, longitude: 106.79721201226859 },
     { latitude: 10.839439466178474, longitude: 106.79714762682178 },
 ]
+<<<<<<< HEAD
 
 var data_TGDD = [
     { latitude: 10.840119855732384, longitude: 106.79638705665327 },
@@ -102,6 +103,77 @@ var sizeTextTatekanban = 5;
 var sizeImgIcon = 2.5;
 //-------------------------------------------------------------------
 
+=======
+
+var data_TGDD = [
+    { latitude: 10.840119855732384, longitude: 106.79638705665327 },
+    { latitude: 10.840052679872864, longitude: 106.79643064255019 },
+    { latitude: 10.839967722146413, longitude: 106.79631262535298 },
+    { latitude: 10.840034239438449, longitude: 106.79625495785959 },
+]
+
+
+var dataUyBanPN = [
+    { latitude: 10.800238702262698, longitude: 106.67790923749516 },
+    { latitude: 10.800204451193762, longitude: 106.67796288166538 },
+    { latitude: 10.800173493492142, longitude: 106.67794745896525 },
+    { latitude: 10.800160978675683, longitude: 106.67797696326116 },
+    { latitude: 10.80017744553933, longitude: 106.6778750393298 },
+]
+
+var dataAroma = [
+    { latitude: 10.799151734378974, longitude: 106.67882794541399 },
+    { latitude: 10.799142307826175, longitude: 106.6789892565667 },
+    { latitude: 10.799031207628733, longitude: 106.67898744438929 },
+    { latitude: 10.799016924737602, longitude: 106.67882399254894 },
+]
+
+var dataVietCombank = [
+    { latitude: 10.799214148156763, longitude: 106.67801454631186 },
+    { latitude: 10.799197022563627, longitude: 106.67824521626176 },
+    { latitude: 10.79900403023501, longitude: 106.67823582853124 },
+    { latitude: 10.799016389576135, longitude: 106.67800676078735 },
+]
+
+var dataLiendoan = [
+    { latitude: 10.799622274684747, longitude: 106.67843450629233 },
+    { latitude: 10.799756260451595, longitude: 106.67858653731433 },
+    { latitude: 10.799699037370978, longitude: 106.67864621304257 },
+    { latitude: 10.799639022908861, longitude: 106.67858369561299 },
+    { latitude: 10.79960122906476, longitude: 106.67863098241675 },
+    { latitude: 10.799522187959392, longitude: 106.67851967075488 }
+]
+var dataSang = [
+    { latitude: 10.78091361749272, longitude: 106.6508851429197 },
+    { latitude: 10.78107188830222, longitude: 106.65089146734765 },
+    { latitude: 10.781075220943432, longitude: 106.65083969520745 },
+    { latitude: 10.78091647025328, longitude: 106.65083231913346 }
+]
+var dataSauNhu = [
+    { latitude: 10.780869680473089, longitude: 106.65087760176131 },
+    { latitude: 10.78087099790675, longitude: 106.65090375329635 },
+    { latitude: 10.780770872931942, longitude: 106.65091247047467 },
+    { latitude: 10.780768447246013, longitude: 106.65088211042914 },
+]
+var src_tatekanban = "/Content/images/tatekanban_new.png";
+var src_redcross = "/Content/images/red_cross.png";
+var data = [
+    { name: "労働組合", polygon: dataLiendoan, icon_url: [src_tatekanban] },
+    { name: "ソリマチ会社", polygon: data_Sorimachi, icon_url: [src_tatekanban] },
+    { name: "PhuNhuan人民委員会", polygon: dataUyBanPN, icon_url: [src_tatekanban] },
+    { name: "VietCom銀行", polygon: dataVietCombank, icon_url: [src_tatekanban] },
+
+];
+
+var oldLocation = null;
+var isCreated = false;
+var locationInsideId = null;
+var arrLocation = [];
+const sizeImgTatekanban = 8;
+const sizeTextTatekanban = 5;
+//-------------------------------------------------------------------
+
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
 
 
 //Fix the conflict in jquery
@@ -129,14 +201,18 @@ var sizeImgIcon = 2.5;
 //Program Run
 window.onload = () => {
     const el = document.querySelector("[gps-new-camera]");
+<<<<<<< HEAD
+=======
+    google.maps.Polygon.prototype.my_getBounds = function () {
+        var bounds = new google.maps.LatLngBounds()
+        this.getPath().forEach(function (element, index) { bounds.extend(element) })
+        return bounds
+    }
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
     el.addEventListener("gps-camera-update-position", e => {
         var my_location = { latitude: e.detail.position.latitude, longitude: e.detail.position.longitude };
         if (isCreated == false) {
-            google.maps.Polygon.prototype.my_getBounds = function () {
-                var bounds = new google.maps.LatLngBounds()
-                this.getPath().forEach(function (element, index) { bounds.extend(element) })
-                return bounds
-            }
+
             CreateArrPolygon();
             InitImage(my_location);
             isCreated = true;
@@ -160,11 +236,24 @@ function CreateArrPolygon() {
 function UpdateGPSCamera(my_location) {
     //alert(my_location.latitude + " " + my_location.longitude);
     var locationGG = new google.maps.LatLng(my_location.latitude, my_location.longitude);
+
+    var flag = true;
     for (var i = 0; i < data.length; i++) {
         if (CheckIsWithinPolygon(locationGG, arrLocation[i])) {
             UpdateTatekanbanInside(i);
+<<<<<<< HEAD
             break;
         }
+=======
+            flag = false;
+        } else {
+            UpdateTatekanban(i, locationGG);
+        }
+    }
+
+    if (flag == true) {
+        locationInsideId = null;
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
     }
     UpdateTatekanban(locationGG);
 }
@@ -193,10 +282,15 @@ function InitImage(my_location) {
         var sizeText = sizeTextTatekanban
         var CenterPointGG = arrLocation[i].my_getBounds().getCenter();
         var cenPoint = { latitude: CenterPointGG.lat(), longitude: CenterPointGG.lng() };
+        var nearestPoint = FindNearstPoint(locationGG, arrLocation[i]);
         if (CheckIsWithinPolygon(locationGG, arrLocation[i])) {
+<<<<<<< HEAD
             alert(my_location.latitude + " " + my_location.longitude);
             alert(data[i].name + "にいます2❣");
             alert(cenPoint.latitude + " " + cenPoint.longitude);
+=======
+            alert(data[i].name + "にいます❣");
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             sizeImg = sizeImg - 3;
             sizeText = sizeText - 2;
             locationInsideId = i;
@@ -216,6 +310,7 @@ function CheckIsWithinPolygon(coordinate, polygon) {
 
 function CreateImageTatekanban(data, i, centerPoint, sizeImg, sizeText, my_location) {
 
+<<<<<<< HEAD
     //var assests = document.querySelector('a-assets');
 
     //var text_tatekanban_img = document.createElement('img');
@@ -272,29 +367,50 @@ function CreateImageTatekanban(data, i, centerPoint, sizeImg, sizeText, my_locat
     CreateText3D(`distance_tatekanban_${i}`, distance, '25px Arial', '#000000')
 
     /////////////////////////////////
+=======
+    CreateText3D(`text_tatekanban_${ i }`, data.name, '35px Arial', '#000000')
+
+    /*var distance = Math.ceil(DistanceBetweenPoints(centerPoint, my_location)) + " m";
+    CreateText3D(`distance_tatekanban_${i}`, distance, '25px Arial', '#000000')*/
+
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
     if (data.icon_url.length == 1) {
         const image = document.createRange().createContextualFragment(`
             <a-entity  gps-new-entity-place="latitude: ${centerPoint.latitude}; longitude: ${centerPoint.longitude};" look-at=[camera] >
                      <a-image id="imgTatekanban_${i}" src="${src_tatekanban}" scale="${sizeImg} ${sizeImg} ${sizeImg}" ></a-image>
                      <a-image id="textTatekanban_${i}" src="#text_tatekanban_${i}" scale="${sizeText} ${sizeText} ${sizeText}" position="0 1 0.65" ></a-image>
+<<<<<<< HEAD
                      <a-text id="distanceTatekanban_${i}"  value="${distance}" color="red" width="8" position="0 3 1" ></a-image>
+=======
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             </a-entity>
 
         `);
         return image;
     }
+<<<<<<< HEAD
     else if (data.icon_url.length == 2) {
+=======
+   /* else if (data.icon_url.length == 2) {
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
         const image = document.createRange().createContextualFragment(`
             <a-entity  gps-new-entity-place="latitude: ${centerPoint.latitude}; longitude: ${centerPoint.longitude};" look-at=[camera] >
                      <a-image id="imgTatekanban_${i}" src="${src_tatekanban}" scale="${sizeImg} ${sizeImg} ${sizeImg}" ></a-image>
                      <a-image id="imgTatekanban_${i}" src="${data.icon_url[1]}" scale="${sizeImgIcon} ${sizeImgIcon} ${sizeImgIcon}"  position="-4.5 0.85 0.65" ></a-image>
                      <a-image id="textTatekanban_${i}" src="#text_tatekanban_${i}" scale="${sizeText} ${sizeText} ${sizeText}" position="0 0.8 1" ></a-image>
+<<<<<<< HEAD
                       <a-text id="distanceTatekanban_${i}"  value="${distance}" color="red" width="8" position="0 5 1" ></a-image>
+=======
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             </a-entity>
 
         `);
         return image;
+<<<<<<< HEAD
     }
+=======
+    }*/
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
 
 }
 
@@ -350,7 +466,6 @@ function DistanceBetweenPoints(pointA, pointB) {
 //Check this tatekanban is inside ?
 function UpdateTatekanbanInside(i) {
     if (locationInsideId != i) {
-
         //Make inside tatekanban into normal
         var imgBeforeTatekanban = document.getElementById(`imgTatekanban_${locationInsideId}`);
         var textBeforeTatekanban = document.getElementById(`textTatekanban_${locationInsideId}`);
@@ -367,6 +482,7 @@ function UpdateTatekanbanInside(i) {
         locationInsideId = i;
     }
 }
+<<<<<<< HEAD
 D
 function UpdateTatekanban(locationGG) {
     for (var i = 0; i < data.length; i++) {
@@ -385,4 +501,29 @@ function UpdateTatekanban(locationGG) {
             }
         }
     }
+=======
+
+
+function UpdateTatekanban(i,locationGG) {
+
+    var nearestPoint = FindNearstPoint(locationGG, arrLocation[i]);
+    var distance = DistanceBetweenPoints(locationGG, nearestPoint);
+    
+    var imgTatekanban = document.getElementById(`imgTatekanban_${i}`);
+    var textTatekanban = document.getElementById(`textTatekanban_${i}`);
+
+    var newSizeImgTatekanban = sizeImgTatekanban;
+    var newSizeTextTatekanban = textTatekanban;
+
+    if (distance < 30) {
+        newSizeImgTatekanban += (1 - distance / 30);
+        newSizeTextTatekanban += (1 - distance / 30);
+    }
+    console.log(newSizeTextTatekanban);
+
+    imgTatekanban.setAttribute('scale', ` ${newSizeImgTatekanban} ${newSizeImgTatekanban} ${newSizeImgTatekanban}`);
+   // textTatekanban.setAttribute('scale', `${newSizeTextTatekanban} ${newSizeTextTatekanban} ${newSizeTextTatekanban}`);
+    /*distanceTatekanban.setAttribute('value', `${distance}`);*/
+
+>>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
 }
