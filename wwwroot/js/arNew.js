@@ -27,7 +27,6 @@ var data_bundau = [
     { latitude: 10.83939600596755, longitude: 106.79721201226859 },
     { latitude: 10.839439466178474, longitude: 106.79714762682178 },
 ]
-<<<<<<< HEAD
 
 var data_TGDD = [
     { latitude: 10.840119855732384, longitude: 106.79638705665327 },
@@ -79,81 +78,11 @@ var dataSauNhu = [
     { latitude: 10.780770872931942, longitude: 106.65091247047467 },
     { latitude: 10.780768447246013, longitude: 106.65088211042914 },
 ]
-var data = [
-    /*    { name: "Sangの家", polygon: dataSang },
-        { name: "Sau Như", polygon: dataSauNhu },*/
-    { name: "労働組合", polygon: dataLiendoan, icon_url: ['/Content/images/tatekanban_new.png']},
-    { name: "ソリマチ会社", polygon: data_Sorimachi, icon_url: ['/Content/images/tatekanban_new.png','/Content/images/red_cross.png']},
-    { name: "PhuNhuan人民委員会", polygon: dataUyBanPN, icon_url: ['/Content/images/tatekanban_new.png'] },
-    /*{ name: "Aroma英語", polygon: dataAroma },*/
-    { name: "VietCom銀行", polygon: dataVietCombank, icon_url: ['/Content/images/tatekanban_new.png'] },
-    /*    { name: "Nhà chị Luyên", polygon: data_Luyen },
-        { name: "Nhà sách mực tím", polygon: data_Luyen_NhaSach },
-        { name: "Bún đậu mắm tôm", polygon: data_bundau },
-        { name: "Thế giới di động", polygon: data_TGDD },*/
-];
-var src_tatekanban = "/Content/images/tatekanban_new.png";
-var src_redcross = "/Content/images/red_cross.png";
-var oldLocation = null;
-var isCreated = false;
-var locationInsideId = null;
-var arrLocation = [];
-var sizeImgTatekanban = 8;
-var sizeTextTatekanban = 5;
-var sizeImgIcon = 2.5;
-//-------------------------------------------------------------------
-
-=======
-
-var data_TGDD = [
-    { latitude: 10.840119855732384, longitude: 106.79638705665327 },
-    { latitude: 10.840052679872864, longitude: 106.79643064255019 },
-    { latitude: 10.839967722146413, longitude: 106.79631262535298 },
-    { latitude: 10.840034239438449, longitude: 106.79625495785959 },
-]
-
-
-var dataUyBanPN = [
-    { latitude: 10.800238702262698, longitude: 106.67790923749516 },
-    { latitude: 10.800204451193762, longitude: 106.67796288166538 },
-    { latitude: 10.800173493492142, longitude: 106.67794745896525 },
-    { latitude: 10.800160978675683, longitude: 106.67797696326116 },
-    { latitude: 10.80017744553933, longitude: 106.6778750393298 },
-]
-
-var dataAroma = [
-    { latitude: 10.799151734378974, longitude: 106.67882794541399 },
-    { latitude: 10.799142307826175, longitude: 106.6789892565667 },
-    { latitude: 10.799031207628733, longitude: 106.67898744438929 },
-    { latitude: 10.799016924737602, longitude: 106.67882399254894 },
-]
-
-var dataVietCombank = [
-    { latitude: 10.799214148156763, longitude: 106.67801454631186 },
-    { latitude: 10.799197022563627, longitude: 106.67824521626176 },
-    { latitude: 10.79900403023501, longitude: 106.67823582853124 },
-    { latitude: 10.799016389576135, longitude: 106.67800676078735 },
-]
-
-var dataLiendoan = [
-    { latitude: 10.799622274684747, longitude: 106.67843450629233 },
-    { latitude: 10.799756260451595, longitude: 106.67858653731433 },
-    { latitude: 10.799699037370978, longitude: 106.67864621304257 },
-    { latitude: 10.799639022908861, longitude: 106.67858369561299 },
-    { latitude: 10.79960122906476, longitude: 106.67863098241675 },
-    { latitude: 10.799522187959392, longitude: 106.67851967075488 }
-]
-var dataSang = [
-    { latitude: 10.78091361749272, longitude: 106.6508851429197 },
-    { latitude: 10.78107188830222, longitude: 106.65089146734765 },
-    { latitude: 10.781075220943432, longitude: 106.65083969520745 },
-    { latitude: 10.78091647025328, longitude: 106.65083231913346 }
-]
-var dataSauNhu = [
-    { latitude: 10.780869680473089, longitude: 106.65087760176131 },
-    { latitude: 10.78087099790675, longitude: 106.65090375329635 },
-    { latitude: 10.780770872931942, longitude: 106.65091247047467 },
-    { latitude: 10.780768447246013, longitude: 106.65088211042914 },
+var dataBachKhoa = [
+    { latitude: 10.7722997481376,  longitude: 106.65909877812233 },
+    { latitude: 10.772600418960248, longitude: 106.65892578513358 },
+    { latitude: 10.772953379977663, longitude: 106.65958448920614 },
+    { latitude: 10.772652709507446, longitude: 106.65976746255963 },
 ]
 var src_tatekanban = "/Content/images/tatekanban_new.png";
 var src_redcross = "/Content/images/red_cross.png";
@@ -162,7 +91,7 @@ var data = [
     { name: "ソリマチ会社", polygon: data_Sorimachi, icon_url: [src_tatekanban] },
     { name: "PhuNhuan人民委員会", polygon: dataUyBanPN, icon_url: [src_tatekanban] },
     { name: "VietCom銀行", polygon: dataVietCombank, icon_url: [src_tatekanban] },
-
+    { name: "BachKhoa", polygon: dataBachKhoa, icon_url: [src_tatekanban] },
 ];
 
 var oldLocation = null;
@@ -173,7 +102,8 @@ const sizeImgTatekanban = 8;
 const sizeTextTatekanban = 5;
 //-------------------------------------------------------------------
 
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
+
+
 
 
 //Fix the conflict in jquery
@@ -201,18 +131,17 @@ const sizeTextTatekanban = 5;
 //Program Run
 window.onload = () => {
     const el = document.querySelector("[gps-new-camera]");
-<<<<<<< HEAD
-=======
     google.maps.Polygon.prototype.my_getBounds = function () {
         var bounds = new google.maps.LatLngBounds()
         this.getPath().forEach(function (element, index) { bounds.extend(element) })
         return bounds
     }
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
     el.addEventListener("gps-camera-update-position", e => {
         var my_location = { latitude: e.detail.position.latitude, longitude: e.detail.position.longitude };
         if (isCreated == false) {
 
+            }
+            }
             CreateArrPolygon();
             InitImage(my_location);
             isCreated = true;
@@ -239,12 +168,6 @@ function UpdateGPSCamera(my_location) {
 
     var flag = true;
     for (var i = 0; i < data.length; i++) {
-        if (CheckIsWithinPolygon(locationGG, arrLocation[i])) {
-            UpdateTatekanbanInside(i);
-<<<<<<< HEAD
-            break;
-        }
-=======
             flag = false;
         } else {
             UpdateTatekanban(i, locationGG);
@@ -253,7 +176,8 @@ function UpdateGPSCamera(my_location) {
 
     if (flag == true) {
         locationInsideId = null;
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
+        } 
+        } 
     }
     UpdateTatekanban(locationGG);
 }
@@ -282,16 +206,10 @@ function InitImage(my_location) {
         var sizeText = sizeTextTatekanban
         var CenterPointGG = arrLocation[i].my_getBounds().getCenter();
         var cenPoint = { latitude: CenterPointGG.lat(), longitude: CenterPointGG.lng() };
-        var nearestPoint = FindNearstPoint(locationGG, arrLocation[i]);
-        if (CheckIsWithinPolygon(locationGG, arrLocation[i])) {
-<<<<<<< HEAD
-            alert(my_location.latitude + " " + my_location.longitude);
-            alert(data[i].name + "にいます2❣");
-            alert(cenPoint.latitude + " " + cenPoint.longitude);
-=======
             alert(data[i].name + "にいます❣");
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             sizeImg = sizeImg - 3;
+            sizeImg = sizeImg - 2;
+            sizeImg = sizeImg - 2;
             sizeText = sizeText - 2;
             locationInsideId = i;
         }
@@ -310,109 +228,34 @@ function CheckIsWithinPolygon(coordinate, polygon) {
 
 function CreateImageTatekanban(data, i, centerPoint, sizeImg, sizeText, my_location) {
 
-<<<<<<< HEAD
-    //var assests = document.querySelector('a-assets');
-
-    //var text_tatekanban_img = document.createElement('img');
-    //var distance_tatekanban_img = document.createElement('img');
-
-    //text_tatekanban_img.id = `text_tatekanban_${i}`;
-    //distance_tatekanban_img.id = `distance_tatekanban_${i}`;
-
-    //// Create a canvas element
-    //var canvas = document.createElement('canvas');
-
-    //// Get the 2D context
-    //var context = canvas.getContext('2d');
-
-    //// Set font and text properties
-    //context.font = '35px Arial';
-    //context.fillStyle = '#000000';
-    //var textX = canvas.width / 2 - context.measureText(data.name).width / 2;
-    //var textY = canvas.height / 2;
-
-    //// Draw the text on the canvas
-    //context.fillText(data.name, textX, textY);
-
-    ////get Url data
-    //text_tatekanban_img.src = canvas.toDataURL();
-    //assests.appendChild(text_tatekanban_img);
-
-    //// Create AR distance
-    //// Create distance
-    //var distance = Math.ceil(DistanceBetweenPoints(centerPoint, my_location)) + " m";
-
-    //// Create a canvas element
-    //var canvas2 = document.createElement('canvas');
-
-    //// Get the 2D context
-    //var context2 = canvas2.getContext('2d');
-
-    //// Set font and distance properties
-    //context2.font = '25px Arial';
-    //context2.fillStyle = '#000000';
-    //var textX2 = canvas2.width / 2 - context2.measureText(distance).width / 2;
-    //var textY2 = canvas2.height / 2;
-
-    //// Draw the distance on the canvas
-    //context2.fillText(distance , textX2, textY2);
-
-    ////get Url data
-    //distance_tatekanban_img.src = canvas2.toDataURL();
-    //assests.appendChild(distance_tatekanban_img);
-
-    CreateText3D(`text_tatekanban_${ i }`, data.name, '35px Arial', '#000000')
-
-    var distance = Math.ceil(DistanceBetweenPoints(centerPoint, my_location)) + " m";
-    CreateText3D(`distance_tatekanban_${i}`, distance, '25px Arial', '#000000')
-
-    /////////////////////////////////
-=======
     CreateText3D(`text_tatekanban_${ i }`, data.name, '35px Arial', '#000000')
 
     /*var distance = Math.ceil(DistanceBetweenPoints(centerPoint, my_location)) + " m";
     CreateText3D(`distance_tatekanban_${i}`, distance, '25px Arial', '#000000')*/
 
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
     if (data.icon_url.length == 1) {
         const image = document.createRange().createContextualFragment(`
             <a-entity  gps-new-entity-place="latitude: ${centerPoint.latitude}; longitude: ${centerPoint.longitude};" look-at=[camera] >
                      <a-image id="imgTatekanban_${i}" src="${src_tatekanban}" scale="${sizeImg} ${sizeImg} ${sizeImg}" ></a-image>
                      <a-image id="textTatekanban_${i}" src="#text_tatekanban_${i}" scale="${sizeText} ${sizeText} ${sizeText}" position="0 1 0.65" ></a-image>
-<<<<<<< HEAD
-                     <a-text id="distanceTatekanban_${i}"  value="${distance}" color="red" width="8" position="0 3 1" ></a-image>
-=======
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             </a-entity>
 
         `);
         return image;
     }
-<<<<<<< HEAD
-    else if (data.icon_url.length == 2) {
-=======
    /* else if (data.icon_url.length == 2) {
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
         const image = document.createRange().createContextualFragment(`
             <a-entity  gps-new-entity-place="latitude: ${centerPoint.latitude}; longitude: ${centerPoint.longitude};" look-at=[camera] >
                      <a-image id="imgTatekanban_${i}" src="${src_tatekanban}" scale="${sizeImg} ${sizeImg} ${sizeImg}" ></a-image>
                      <a-image id="imgTatekanban_${i}" src="${data.icon_url[1]}" scale="${sizeImgIcon} ${sizeImgIcon} ${sizeImgIcon}"  position="-4.5 0.85 0.65" ></a-image>
                      <a-image id="textTatekanban_${i}" src="#text_tatekanban_${i}" scale="${sizeText} ${sizeText} ${sizeText}" position="0 0.8 1" ></a-image>
-<<<<<<< HEAD
-                      <a-text id="distanceTatekanban_${i}"  value="${distance}" color="red" width="8" position="0 5 1" ></a-image>
-=======
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
             </a-entity>
 
         `);
         return image;
-<<<<<<< HEAD
-    }
-=======
-    }*/
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
-
 }
+function CreateImageTatekanban( data, i,centerPoint,sizeImg,sizeText) {
+function CreateImageTatekanban( data, i,centerPoint,sizeImg,sizeText) {
 
 //Function create text 3D
 function CreateText3D(id, text, font, fillStyle) {
@@ -476,32 +319,10 @@ function UpdateTatekanbanInside(i) {
         var imgTatekanban = document.getElementById(`imgTatekanban_${i}`);
         var textTatekanban = document.getElementById(`textTatekanban_${i}`);
 
-        imgTatekanban.setAttribute('scale', `${sizeImgTatekanban - 3} ${sizeImgTatekanban - 3} ${sizeImgTatekanban - 3}`);
-        textTatekanban.setAttribute('scale', `${sizeTextTatekanban - 2} ${sizeTextTatekanban - 2} ${sizeTextTatekanban - 2}`);
 
         locationInsideId = i;
     }
 }
-<<<<<<< HEAD
-D
-function UpdateTatekanban(locationGG) {
-    for (var i = 0; i < data.length; i++) {
-        if (i != locationInsideId) {
-            var nearestPoint = FindNearstPoint(locationGG, arrLocation[i]);
-            var distance = DistanceBetweenPoints(locationGG, nearestPoint);
-            if (DistanceBetweenPoints(locationGG, nearestPoint) < 30) {
-                var imgTatekanban = document.getElementById(`imgTatekanban_${i}`);
-                var textTatekanban = document.getElementById(`textTatekanban_${i}`);
-
-                var newSizeImgTatekanban = sizeImgTatekanban +  (1 - i / 30);
-                var newSizeTextTatekanban = sizeTextTatekanban + (1 - i / 30);
-
-                imgTatekanban.setAttribute('scale', ` ${newSizeImgTatekanban} ${newSizeImgTatekanban}`);
-                textTatekanban.setAttribute('scale', `${newSizeTextTatekanban} ${newSizeTextTatekanban + (i / 30)} ${newSizeTextTatekanban + (i / 30) }`);
-            }
-        }
-    }
-=======
 
 
 function UpdateTatekanban(i,locationGG) {
@@ -514,16 +335,16 @@ function UpdateTatekanban(i,locationGG) {
 
     var newSizeImgTatekanban = sizeImgTatekanban;
     var newSizeTextTatekanban = textTatekanban;
-
+       
     if (distance < 30) {
         newSizeImgTatekanban += (1 - distance / 30);
         newSizeTextTatekanban += (1 - distance / 30);
-    }
+       
     console.log(newSizeTextTatekanban);
 
     imgTatekanban.setAttribute('scale', ` ${newSizeImgTatekanban} ${newSizeImgTatekanban} ${newSizeImgTatekanban}`);
    // textTatekanban.setAttribute('scale', `${newSizeTextTatekanban} ${newSizeTextTatekanban} ${newSizeTextTatekanban}`);
     /*distanceTatekanban.setAttribute('value', `${distance}`);*/
 
->>>>>>> 27344f08e5e385d52d8f5a339b7457aa49e8cd2d
 }
+}}
