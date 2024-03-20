@@ -84,8 +84,7 @@ var dataBachKhoa = [
     { latitude: 10.772953379977663, longitude: 106.65958448920614 },
     { latitude: 10.772652709507446, longitude: 106.65976746255963 },
 ]
-var src_tatekanban = "/Content/images/tatekanban_new.png";
-var src_redcross = "/Content/images/red_cross.png";
+var src_tatekanban = "/img/tatekanban_new.png";
 var data = [
     { name: "労働組合", polygon: dataLiendoan, icon_url: [src_tatekanban] },
     { name: "ソリマチ会社", polygon: data_Sorimachi, icon_url: [src_tatekanban] },
@@ -139,9 +138,6 @@ window.onload = () => {
     el.addEventListener("gps-camera-update-position", e => {
         var my_location = { latitude: e.detail.position.latitude, longitude: e.detail.position.longitude };
         if (isCreated == false) {
-
-            }
-            }
             CreateArrPolygon();
             InitImage(my_location);
             isCreated = true;
@@ -169,15 +165,13 @@ function UpdateGPSCamera(my_location) {
     var flag = true;
     for (var i = 0; i < data.length; i++) {
             flag = false;
-        } else {
-            UpdateTatekanban(i, locationGG);
-        }
     }
 
     if (flag == true) {
         locationInsideId = null;
-        } 
-        } 
+    }
+    else {
+    UpdateTatekanban(i, locationGG);
     }
     UpdateTatekanban(locationGG);
 }
